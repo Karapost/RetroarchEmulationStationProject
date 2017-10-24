@@ -1,0 +1,1 @@
+wget -qO- https://www.emuparadise.me/Sony_Playstation_ISOs/List-All-Titles/2 | awk -F '\<a class="index gamelist" title="' '{for(i=2;i<=NF;i++ )print($i)}'| awk -F 'ISO Info' '{print($1)}' | while read line; do touch "$line.txt"; done
